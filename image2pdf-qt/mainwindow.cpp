@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->pushButton_beginConv->setEnabled(!resp.IsRunning);
         ui->pushButton_endConv->setEnabled(resp.IsRunning);
         ui->pushButton_setOutputFileName->setEnabled(!resp.IsRunning);
+        ui->pushButton_clearImageList->setEnabled(!resp.IsRunning);
 
         if(!resp.IsRunning)
             resp.Percent = 0;
