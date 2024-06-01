@@ -3,7 +3,7 @@ module image2pdf
 go 1.20
 
 require (
-	github.com/orestonce/go2cpp v0.0.0-20231006054549-6c29552e1d75
+	github.com/orestonce/go2cpp v0.0.0-20240601050550-291959ebfd3b
 	github.com/signintech/gopdf v0.20.0
 	github.com/x-mod/dir v0.1.1
 )
