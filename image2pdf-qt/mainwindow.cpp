@@ -50,7 +50,7 @@ void MainWindow::on_pushButton_addImage_clicked()
 {
     QString filter = "*.png;*.jpg;*.jpeg;*.gif;*.tiff;*.bmp";
 
-    QSet<QString> fileList = QFileDialog::getOpenFileNames(this,
+    QStringList fileList = QFileDialog::getOpenFileNames(this,
                                                           "",
                                                           "",
                                                           filter);
