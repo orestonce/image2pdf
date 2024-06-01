@@ -50,25 +50,17 @@ void MainWindow::on_pushButton_addImage_clicked()
 {
     QString filter = "*.png;*.jpg;*.jpeg;*.gif;*.tiff;*.bmp";
 
-    QSet<QString> fileSet = QFileDialog::getOpenFileNames(this,
+    QSet<QString> fileList = QFileDialog::getOpenFileNames(this,
                                                           "",
                                                           "",
-                                                          filter).toSet();
-    if(fileSet.isEmpty())
-        return;
-
+                                                          filter);
     for(auto one: getImageList())
     {
-        fileSet.remove(one);
+        fileList.removeAll(one);
     }
-    if(fileSet.isEmpty())
+    if(fileList.isEmpty())
         return;
 
-    QStringList fileList;
-    for(auto it = fileSet.begin(); it != fileSet.end(); it++)
-    {
-        fileList.append(*it);
-    }
     std::sort(fileList.begin(), fileList.end());
 
     int index = ui->listWidget_image->currentIndex().row();
