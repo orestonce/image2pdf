@@ -64,7 +64,11 @@ void MainWindow::on_pushButton_addImage_clicked()
     if(fileSet.isEmpty())
         return;
 
-    QStringList fileList = fileSet.toList();
+    QStringList fileList;
+    for(auto it = fileSet.begin(); it != fileSet.end(); it++)
+    {
+        fileList.append(*it);
+    }
     std::sort(fileList.begin(), fileList.end());
 
     int index = ui->listWidget_image->currentIndex().row();
