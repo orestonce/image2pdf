@@ -260,7 +260,7 @@ bool RunOnUiThread::IsDone()
 #include <QPainter>
 #include <QScreen>
 #include <QHBoxLayout>
-#include <QDesktopWidget>
+#include <QGuiApplication>
 #include <QApplication>
 
 QString StringToRGBA(const QString &color);
@@ -309,8 +309,8 @@ void Toast::setText(const QString &color,const QString &bgcolor,const int & mest
     m_myWidget->setStyleSheet(QString("border: none;border-radius:10px;")
                             .append("background-color:").append(StringToRGBA(bgcolor)));
 
-    QDesktopWidget *pDesk = QApplication::desktop();
-    m_myWidget->move((pDesk->width() - m_myWidget->width()) / 2, (pDesk->height() - m_myWidget->height()) / 2);
+    QSize deskSize = QGuiApplication::primaryScreen()->size();
+    m_myWidget->move((deskSize.width() - m_myWidget->width()) / 2, (deskSize.height() - m_myWidget->height()) / 2);
     m_myWidget->show();
     m_timer->setInterval(mestime);
     m_timer->stop();

@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"github.com/orestonce/go2cpp"
 	"image2pdf"
+	"os"
+	"strconv"
 )
 
 func main() {
@@ -16,5 +19,16 @@ func main() {
 	ctx.Generate1(image2pdf.GetStatus)
 	ctx.Generate1(image2pdf.EndConv)
 	ctx.Generate1(image2pdf.IsRequestStop)
-	ctx.MustCreateAmd64LibraryInDir("image2pdf-qt")
+
+	goarch := "amd64"
+	buildMode := "c-archive"
+	if len(os.Args) == 4 {
+		switch os.Args[1] {
+		case "create-qt-lib":
+			goarch = os.Args[2]
+			buildMode = os.Args[3]
+		}
+	}
+	fmt.Println("create lib ", strconv.Quote(goarch), strconv.Quote(buildMode))
+	ctx.MustCreateLibrary("image2pdf-qt", goarch, buildMode)
 }

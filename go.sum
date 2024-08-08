@@ -126,6 +126,8 @@ github.com/orestonce/go2cpp v0.0.0-20231006054549-6c29552e1d75 h1:VGLo31NMkbuY+x
 github.com/orestonce/go2cpp v0.0.0-20231006054549-6c29552e1d75/go.mod h1:1fsOAZftk08/dOTRqlp6f/MVwaEKOhrnPUg0RtWiSdY=
 github.com/orestonce/go2cpp v0.0.0-20240601050550-291959ebfd3b h1:QfQIeFFOWiRSOUBYotYuI1PphowxHItPp9Z/jPuzoaU=
 github.com/orestonce/go2cpp v0.0.0-20240601050550-291959ebfd3b/go.mod h1:1fsOAZftk08/dOTRqlp6f/MVwaEKOhrnPUg0RtWiSdY=
+github.com/orestonce/go2cpp v0.0.0-20240804085624-460ecb5af956 h1:DhinjgeUvBk8jLCby82NAdTmLrzBCjwzlq6WxWC/ITk=
+github.com/orestonce/go2cpp v0.0.0-20240804085624-460ecb5af956/go.mod h1:1fsOAZftk08/dOTRqlp6f/MVwaEKOhrnPUg0RtWiSdY=
 github.com/phpdave11/gofpdi v1.0.14-0.20211212211723-1f10f9844311 h1:zyWXQ6vu27ETMpYsEMAsisQ+GqJ4e1TPvSNfdOPF0no=
 github.com/phpdave11/gofpdi v1.0.14-0.20211212211723-1f10f9844311/go.mod h1:vBmVV0Do6hSBHC8uKUQ71JGW+ZGQq74llk/7bXwjDoI=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=

@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+
+name: push-build-check
+
+# Controls when the workflow will run
+on: push
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-windows-x64:
+    runs-on: windows-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: install qt static
+        uses: orestonce/install-qt@main
+        with:
+          version: Qt5.15.7-Windows-x86_64-MinGW8.1.0-staticFull-20221104
+      - name: Setup Go environment
+        uses: actions/setup-go@v3.2.1
+        with:
+          # The Go version to download (if necessary) and use. Supports semver spec and ranges.
+          go-version: 1.20.11 # optional
+      - name: build
+        run: |
+          go mod tidy
+          go run export/main.go create-qt-lib amd64 c-archive
+          cd image2pdf-qt && qmake && mingw32-make release && cd ..
+          dir image2pdf-qt\release\image2pdf-qt.exe
+  build-windows-x86:
+    runs-on: windows-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: install qt static
+        uses: orestonce/install-qt@main
+        with:
+          version: Qt5.6.3-Windows-x86-MinGW4.9.4-staticFull-20200104
+      - name: Setup Go environment
+        uses: actions/setup-go@v3.2.1
+        with:
+          # The Go version to download (if necessary) and use. Supports semver spec and ranges.
+          go-version: 1.18 # optional
+      - name: build
+        run: |
+          go mod tidy
+          go run export/main.go create-qt-lib 386 c-archive
+          cd image2pdf-qt && qmake && mingw32-make release && cd ..
+          dir image2pdf-qt\release\image2pdf-qt.exe
